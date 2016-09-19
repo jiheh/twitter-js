@@ -5,6 +5,7 @@ var nunjucks = require('nunjucks');
 
 var users = {
 	title: "An Example",
+	message: "Welcome to your profile!",
 	people: [
 		{name: "Stephanie"},
 		{name: "Jiheh"},
