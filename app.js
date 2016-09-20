@@ -4,6 +4,7 @@ var volleyball = require('volleyball');
 var nunjucks = require('nunjucks');
 var routes = require('./routes/');
 var bodyParser = require('body-parser');
+var socketio = require('socket.io');
 
 var users = {
 	title: "An Example",
@@ -43,7 +44,9 @@ app.use('/special', function (req, res, next) {
 //Render all static files in public directory
 app.use(express.static('public'));
 
-//Send all GET requests through router
-app.use('/', routes);
+var server = app.listen(3000);
+var io = socketio.listen(server);
 
-app.listen(3000);
+//Send all GET requests through router
+app.use('/', routes(io));
+

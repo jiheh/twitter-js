@@ -15,6 +15,7 @@
     <div class="col-md-9">
     
       <!-- display tweets here -->
+      <div id="tweetList">
       {% for tweet in tweets %}
       <ul class = "tweet-list">
         <li class = "tweet-name"><a href = "/users/{{tweet.name}}">{{tweet.name}}</a></li>
@@ -22,6 +23,7 @@
         <li><a href= "" >Re-tweet</a></li>
       </ul>
       {% endfor %}
+      </div>
 
       {% if showForm %}
         <form action="/tweets" method="POST">
