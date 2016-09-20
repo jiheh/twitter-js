@@ -3,8 +3,10 @@ var _ = require('lodash');
 var data = [];
 
 function add (name, content) {
-  data.push({ name: name, content: content });
+    data.push({id: data.length+1, name: name, content: content });
 }
+
+//question: what is the best practice for setting the id? closure?
 
 function list () {
   return _.cloneDeep(data);
@@ -31,6 +33,8 @@ var getFakeTweet = function() {
   var awesome_adj = ['awesome', 'breathtaking', 'amazing', 'funny', 'sweet', 'cool', 'wonderful', 'mindblowing'];
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
+
+add("stephanie", "hello there! This is my tweet!")
 
 for (var i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );

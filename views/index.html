@@ -3,7 +3,8 @@
 {% block content %}
   
   <div class="page-header">
-    <h1>Welcome to Twitter.js!</h1>
+    <h1>Welcome to Twitter.js,{{curUser}}!</h1>
+    <!-- how do you remove the , for non-user sites -->
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -15,8 +16,13 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
+      <ul class = "tweet-list">
+        <li class = "tweet-name"><a href = "/users/{{tweet.name}}">{{tweet.name}}</a></li>
+        <li><a href ="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
+        <li><a href= "" >Re-tweet</a></li>
+      </ul>
       {% endfor %}
+
       
     </div>
   </div>

@@ -57,3 +57,11 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+.tweet-name{
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
