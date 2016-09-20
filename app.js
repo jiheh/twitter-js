@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var volleyball = require('volleyball');
 var nunjucks = require('nunjucks');
+var routes = require('./routes/');
 
 var users = {
 	title: "An Example",
@@ -28,13 +29,8 @@ app.use('/special', function (req, res, next) {
 	next();
 });
 
-app.get('/', function(req, res, next) {
-	res.render('index', users);
-});
+app.use(express.static('public'));
 
-app.get('/news', function(req, res, next) {
-	res.sendStatus(200);
-});
-
+app.use('/', routes);
 
 app.listen(3000);
